@@ -109,6 +109,6 @@ Introduce extras (like wides and no-balls).
 Allow custom number of overs and innings.
 
 👨‍💻 Author
-Developed by Rajanya7773✨
+Developed by ABHISHEK KUMAR SINGH✨
 Feel free to modify or expand the code as per your project or learning needs!
 
