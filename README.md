@@ -109,9 +109,6 @@ Introduce extras (like wides and no-balls).
 Allow custom number of overs and innings.
 
 👨‍💻 Author
-Developed by [] ✨
+Developed by Rajanya7773✨
 Feel free to modify or expand the code as per your project or learning needs!
 
-Would you also like a small badge version or markdown table version of the README if you want it even cooler? 😎
-(Like GitHub badges for "Language: C" | "Project Type: Simulation" | etc.)
-Just say the word! 🚀
