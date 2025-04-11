@@ -1,114 +1,184 @@
-🏏 Mini Cricket Scoreboard Simulation (C Language)
-📜 About
-This C program simulates a simple cricket match scoreboard for a limited-overs format.
-It tracks the performance of two active batsmen and a bowler, updates the match situation ball-by-ball, and displays the current score after every delivery.
-You can input runs scored or wickets, rotate strike based on odd runs or overs, and even change bowlers after each over!
+🏏 Cricket Match Score Simulator
+A C program to simulate a live cricket match where you enter ball-by-ball outcomes, and the system automatically manages the scorecard, strike rotation, over changes, bowler stats, and match progression — just like a real T20 match!
 
-🎯 Features
-Track batsman runs, balls faced, bowler stats (wickets, runs given).
+📋 Table of Contents
+1.About the Project
 
-Strike rotation on odd runs and at the end of overs.
+2.Features
 
-Dynamic bowler changes after each over.
+3.How It Works
 
-Match ends automatically after reaching:
+4.Program Flow
 
-Maximum Wickets (10), or
+5.Requirements
 
-Maximum Overs (5, or as defined).
+6.How to Run
 
-Real-time current scorecard updates.
+7.Sample Output
 
-Simple and easy-to-use input system.
+8.Future Improvements
 
-⚙️ How it Works
-Program asks for:
+📖 About the Project
+This project creates a basic yet realistic cricket match simulation for 5 overs or until 10 wickets fall.
+It tracks batsmen scores, bowler performance, total team score, and updates the scoreboard live after every ball.
 
-Striker's name
+You manually input the result of each ball (runs scored or wicket) and the system takes care of all the rules of cricket behind the scenes.
 
-Non-striker's name
+It’s a fun way to learn:
 
-Bowler's name
+C Programming (Structures, Loops, Conditionals, Functions)
 
-Match starts, and you can:
+How cricket match rules work
 
-Enter runs scored per ball (0,1,2,3,4,6).
+Managing live updates dynamically
 
-Enter -1 if a wicket falls.
+✨ Features
+✅ Tracks two current batsmen: Striker and Non-Striker
+✅ Handles runs (0,1,2,3,4,6) and wickets (-1) input
+✅ Strike changes automatically based on runs and over completions
+✅ After each over, asks for a new bowler
+✅ Keeps track of bowler’s runs conceded and wickets taken
+✅ Displays a live scoreboard after every ball
+✅ Ends match after 5 overs or 10 wickets
+✅ Provides a neat Final Score Summary at the end
 
-After every ball:
+⚙️ How It Works (Step-by-Step)
+1. 🏏 Start of Match
+You enter:
 
-Score updates and strike changes accordingly.
+>>Striker’s name
 
-After every over:
+>>Non-striker’s name
 
-New bowler’s name is requested.
+>>Bowler’s name
 
-Strike rotates.
+All player stats (runs, balls faced, wickets, runs conceded) are initialized to zero.
 
-Match finishes when either:
+2. 🎯 Ball-by-Ball Play
+For each ball:
 
-10 wickets fall
+Input runs scored (0,1,2,3,4,6) or -1 if it's a wicket.
 
-5 overs are bowled
+Based on input:
 
-🛠️ How to Compile and Run
+If runs are scored:
+
+Runs are added to striker’s stats and team’s total.
+
+Bowler’s runs conceded are updated.
+
+If runs are odd (1 or 3), strike changes.
+
+If a wicket falls (-1):
+
+Current striker is out.
+
+Team's wickets increase.
+
+Bowler's wickets increase.
+
+New batsman’s name is entered to replace the striker.
+
+3. 🏁 Over Management
+After 6 balls:
+
+Over counter increases.
+
+Balls reset to zero.
+
+Strike is automatically changed.
+
+Prompt appears to enter a new bowler's name.
+
+New bowler stats start from zero.
+
+4. 🛑 Match End Conditions
+The match ends immediately if:
+
+10 wickets fall, or
+
+5 overs are completed.
+
+Final match summary is printed.
+
+🔄 Program Flow
+plaintext
+Copy
+Edit
+Start ➔
+Input Batsmen and Bowler Names ➔
+Loop per ball:
+    ➔ Input Ball Result (Runs or Wicket)
+    ➔ Update Stats (Runs, Balls, Bowler)
+    ➔ Manage Strike Change (if needed)
+    ➔ Check Over Completion (every 6 balls)
+        ➔ Rotate Strike + New Bowler
+    ➔ Display Live Scoreboard
+    ➔ Check Match End (5 overs or 10 wickets)
+End ➔ Final Score Summary
+🖥️ Requirements
+C Compiler (like GCC)
+
+Basic knowledge of running C programs
+
+🚀 How to Run
+Copy the code into a file named cricket_simulator.c.
+
+Open a terminal or command prompt.
+
+Compile the code:
+
 bash
 Copy
 Edit
-gcc cricket_scoreboard.c -o cricket_scoreboard
-./cricket_scoreboard
-Or if using Windows:
+gcc cricket_simulator.c -o cricket_simulator
+Run the program:
 
 bash
 Copy
 Edit
-gcc cricket_scoreboard.c -o cricket_scoreboard.exe
-cricket_scoreboard.exe
-📈 Sample Gameplay
-yaml
+./cricket_simulator
+Follow the on-screen prompts to simulate the match!
+
+📈 Sample Output
+plaintext
 Copy
 Edit
-Enter Striker's Name: Virat
-Enter Non-striker's Name: Rohit
-Enter Bowler's Name: Anderson
+Enter Striker's Name: Rohit
+Enter Non-striker's Name: Kohli
+Enter Bowler's Name: Starc
 
 Match Starts Now!
 
-Enter runs scored (0,1,2,3,4,6) or -1 for Wicket: 4
+Enter runs scored (0,1,2,3,4,6) or -1 for Wicket: 1
 
 ----------------------------------
        Current Match Score       
 ----------------------------------
-Batsman: Virat - 4 (1 balls)
-Partner: Rohit - 0 (0 balls)
-Total Score: 4/0
-Bowler: Anderson | Wickets: 0 | Runs Given: 4
+Batsman: Kohli - 0 (0 balls)
+Partner: Rohit - 1 (1 balls)
+Total Score: 1/0
+Bowler: Starc | Wickets: 0 | Runs Given: 1
 Overs: 0.1 | Overs Remaining: 4.5
 ----------------------------------
 
-...
-📌 Important Points
-Only valid inputs: 0,1,2,3,4,6,-1
+... [continues until match end] ...
+📚 Future Improvements (Ideas 💡)
+Track individual batsmen dismissals (e.g., Caught, Bowled).
 
-Enter -1 to simulate a batsman getting out.
+Record partnerships.
 
-After an over ends (6 balls), you must input the new bowler’s name.
+Allow multiple overs per bowler (with bowling limits).
 
-Program assumes basic T20 style rules for strike changes and over management.
+Save match scorecard to a text file.
 
-🏗️ Future Improvements (Optional Ideas)
-Maintain cumulative stats for all bowlers.
+Create a "full match replay" option.
 
-Display a full batting scoreboard at the end.
+Make a 2-team match (batting and bowling turns).
 
-Calculate and display Run Rate and Required Run Rate (for chasing games).
+🌟 Final Notes
+This project is a simple, beginner-friendly cricket match simulator, perfect for understanding game logic programming in C!
+It combines sports with programming and can be extended into a much bigger cricket management game.
 
-Introduce extras (like wides and no-balls).
-
-Allow custom number of overs and innings.
-
-👨‍💻 Author
-Developed by ABHISHEK KUMAR SINGH✨
-Feel free to modify or expand the code as per your project or learning needs!
+Enjoy scoring! 🎯🏏
 
