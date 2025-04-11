@@ -2,6 +2,7 @@
 A C program to simulate a live cricket match where you enter ball-by-ball outcomes, and the system automatically manages the scorecard, strike rotation, over changes, bowler stats, and match progression — just like a real T20 match!
 
 📋 Table of Contents
+
 1.About the Project
 
 2.Features
